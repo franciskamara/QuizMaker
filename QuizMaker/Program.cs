@@ -15,24 +15,28 @@ public class Program
         for (int qInput = 0; qInput < numberOfQuestions; qInput++)//Loops for Q and A input
         {
             List<QuestionsAndAnswers> qList = new();
-            QuestionsAndAnswers questionEntry = new();
+            List<QuestionsAndAnswers> aList = new();
+            
+            QuestionsAndAnswers qAndA = new();
             Console.Write("Input the question: ");
-            questionEntry.Question = Console.ReadLine();
+            qAndA.Question = Console.ReadLine();
             Console.Clear();
 
             for (int aInput = 0; aInput < numberOfAnswers; aInput++)
             {
                 Console.Write($"Input answer {aInput +1}: ");
-                questionEntry.answer = Console.ReadLine();
+                qAndA.answers = Console.ReadLine();
                 Console.Clear();
-                // questionEntry.answerTwo = Console.ReadLine();
-                // questionEntry.answerThree = Console.ReadLine();
-                // questionEntry.answerFour = Console.ReadLine();
-                // questionEntry.correctAnswer = Console.ReadLine();
+                
             }
-            qList.Add(questionEntry);
-            Console.WriteLine(questionEntry.Question);
-            Console.WriteLine(questionEntry.answer);
+
+            Console.Write("Input the correct answer: ");
+            qAndA.correctAnswer = Console.ReadLine();
+            
+            qList.Add(qAndA);
+            // aList.Add();
+            Console.WriteLine(qAndA.Question);
+            Console.WriteLine();
         }
     }
 }
