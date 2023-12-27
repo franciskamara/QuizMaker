@@ -6,10 +6,10 @@ namespace QuizMaker
 
         public string Question = "";
 
-        public string answerOne;
-        public string answerTwo;
-        public string answerThree;
-        public string answerFour;
+        public string answer;
+        // public string answerTwo;
+        // public string answerThree;
+        // public string answerFour;
         public string correctAnswer;
         
     }

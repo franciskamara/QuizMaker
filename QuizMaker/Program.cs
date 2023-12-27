@@ -23,15 +23,16 @@ public class Program
             for (int aInput = 0; aInput < numberOfAnswers; aInput++)
             {
                 Console.Write($"Input answer {aInput +1}: ");
-                questionEntry.answerOne = Console.ReadLine();
+                questionEntry.answer = Console.ReadLine();
+                Console.Clear();
                 // questionEntry.answerTwo = Console.ReadLine();
                 // questionEntry.answerThree = Console.ReadLine();
                 // questionEntry.answerFour = Console.ReadLine();
                 // questionEntry.correctAnswer = Console.ReadLine();
             }
-
             qList.Add(questionEntry);
-
+            Console.WriteLine(questionEntry.Question);
+            Console.WriteLine(questionEntry.answer);
         }
     }
 }
