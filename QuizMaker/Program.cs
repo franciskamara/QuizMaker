@@ -11,11 +11,11 @@ public class Program
         Console.Write("How many answers do you want to include for your questions? ");
         int numberOfAnswers = int.Parse(Console.ReadLine());
         Console.Clear();
+            
+        List<QuestionsAndAnswers> qList = new();
 
         for (int qInput = 0; qInput < numberOfQuestions; qInput++)//Loops for Q and A input
         {
-            List<QuestionsAndAnswers> qList = new();
-            List<QuestionsAndAnswers> aList = new();
             
             QuestionsAndAnswers qAndA = new();
             Console.Write("Input the question: ");
@@ -25,13 +25,13 @@ public class Program
             for (int aInput = 0; aInput < numberOfAnswers; aInput++)
             {
                 Console.Write($"Input answer {aInput +1}: ");
-                qAndA.answers = Console.ReadLine();
+                qAndA.answers.Add( Console.ReadLine());
                 Console.Clear();
                 
             }
 
-            Console.Write("Input the correct answer: ");
-            qAndA.correctAnswer = Console.ReadLine();
+            Console.Write("Choose the correct answer index: ");
+            qAndA.correctAnswer = Int32.Parse(Console.ReadLine());
             
             qList.Add(qAndA);
             // aList.Add();
