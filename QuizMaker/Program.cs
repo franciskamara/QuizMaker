@@ -1,4 +1,6 @@
-﻿namespace QuizMaker;
+﻿using System.Xml.Serialization;
+
+namespace QuizMaker;
 
 public class Program
 {
@@ -34,9 +36,20 @@ public class Program
             qAndA.correctAnswer = Int32.Parse(Console.ReadLine());
             
             qList.Add(qAndA);
-            // aList.Add();
             Console.WriteLine(qAndA.Question);
-            Console.WriteLine();
+
+            foreach (string answer in qAndA.answers)
+            {
+                Console.WriteLine(answer);   
+            }
+
+            XmlSerializer writer = new XmlSerializer(typeof(QuestionsAndAnswers));
+            var path = @"QuestionsAndAnswersList.xml";
+            using (FileStream file = File.Create(path))
+            {
+                writer.Serialize(file, qAndA);
+            }
+
         }
     }
 }
