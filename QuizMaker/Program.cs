@@ -7,15 +7,17 @@ public class Program
 {
     public static void Main()
     {
-        Console.WriteLine(" Welcome to the Quiz Maker");
-        Console.WriteLine("___________________________");
-        Console.WriteLine();
+        const char playOption = '1';
+        const char questionInput = '2';
+        
+        UIMethods.PrintWelcomeMessage();
 
-        Console.Write("Input (1) to Play or input (2) to create Questions Answers: ");
-        char userSelection = Console.ReadKey().KeyChar;
-        Console.Clear();
+        char userSelection = UIMethods.PlayOrQuestionSelect(playOption, questionInput);
+        // Console.Write($"Input ({playOption}) to Play or input ({questionInput}) to create Questions & Answers: ");
+        // char userSelection = Console.ReadKey().KeyChar;
+        // Console.Clear();
 
-        if (userSelection == '2')
+        if (userSelection == questionInput)
         {
             Console.Write("How many questions do you wish to include? ");
             int numberOfQuestions = int.Parse(Console.ReadLine()); //Quantity of questions to input
@@ -66,9 +68,17 @@ public class Program
             }
         }
 
-        if (userSelection == '1')
+        if (userSelection == playOption)
         {
-            
+            //Random quesiton generator
+            Random random = new Random();
+            string randomQuestion = random.ToString();
+        }
+
+        else
+        {
+            Console.WriteLine("Invalid selection");
+            return;
         }
     }
 }
