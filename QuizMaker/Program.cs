@@ -5,34 +5,28 @@ namespace QuizMaker;
 
 public class Program
 {
+    //User game selection constants
+    public const char playOption = '1';
+    public const char questionInput = '2';
+
     public static void Main()
     {
-        const char playOption = '1';
-        const char questionInput = '2';
-        
         UIMethods.PrintWelcomeMessage();
 
-        char userSelection = UIMethods.PlayOrQuestionSelect(playOption, questionInput);
-        // Console.Write($"Input ({playOption}) to Play or input ({questionInput}) to create Questions & Answers: ");
-        // char userSelection = Console.ReadKey().KeyChar;
-        // Console.Clear();
+        char userSelection = UIMethods.PlayOrQuestionSelect();
 
         if (userSelection == questionInput)
         {
-            Console.Write("How many questions do you wish to include? ");
-            int numberOfQuestions = int.Parse(Console.ReadLine()); //Quantity of questions to input
-            Console.Write("How many answers do you want to include for your questions? ");
-            int numberOfAnswers = int.Parse(Console.ReadLine()); //Quantity of answer options to input 
-            Console.Clear();
+            int numberOfQuestions = UIMethods.InputNumberOfQuestions();
+            int numberOfAnswers = UIMethods.InputNumberOfAnswers();
 
             List<QuestionsAndAnswers> qList = new(); //Create a new Instance (List) of QuestionsAndAnswers object/class
 
             for (int qInput = 0; qInput < numberOfQuestions; qInput++) //Loop: question input
             {
                 QuestionsAndAnswers qAndA = new();
-                Console.Write("Input the question: ");
-                qAndA.Question = Console.ReadLine();
-                Console.Clear();
+
+                UIMethods.QuestionInput();
 
                 for (int aInput = 0; aInput < numberOfAnswers; aInput++) //Loop: answers input
                 {
@@ -70,9 +64,10 @@ public class Program
 
         if (userSelection == playOption)
         {
-            //Random quesiton generator
+            //Random question generator
+            List<string> qAndA = new();
             Random random = new Random();
-            string randomQuestion = random.ToString();
+            // string randomQuestion = random.ToString();
         }
 
         else
