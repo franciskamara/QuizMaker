@@ -65,6 +65,11 @@ public class UIMethods
         return question;
     }
 
+    /// <summary>
+    /// List of answers to input
+    /// </summary>
+    /// <param name="numberOfAnswers">Quantity of answers to be inputted</param>
+    /// <returns>List of answers</returns>
     public static List<string> InputAnswers(int numberOfAnswers)
     {
         List<string> answers = new();
@@ -78,6 +83,10 @@ public class UIMethods
         return answers;
     }
 
+    /// <summary>
+    /// User input the correct answer's index
+    /// </summary>
+    /// <returns>Correct answer index</returns>
     public static int InputCorrectAnswerIndex()
     {
         Console.Write("Choose the correct answer index: ");
