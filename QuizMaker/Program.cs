@@ -30,14 +30,16 @@ public class Program
 
                 for (int aInput = 0; aInput < numberOfAnswers; aInput++) //Loop: answers input
                 {
-                    Console.Write($"Input answer {aInput + 1}: ");
-                    qAndA.answers.Add(Console.ReadLine());
-                    Console.Clear();
+                    UIMethods.InputAnswers(aInput);
+                    // Console.Write($"Input answer {aInput + 1}: ");
+                    // qAndA.answers.Add(Console.ReadLine());
+                    // Console.Clear();
                 }
 
-                Console.Write("Choose the correct answer index: ");
-                qAndA.correctAnswer = Int32.Parse(Console.ReadLine()); //Correct answer index input
-                Console.Clear();
+                UIMethods.InputCorrectAnswerIndex();
+                // Console.Write("Choose the correct answer index: ");
+                // qAndA.correctAnswer = Int32.Parse(Console.ReadLine()); //Correct answer index input
+                // Console.Clear();
 
 
                 qList.Add(qAndA); //Add instance
@@ -49,9 +51,9 @@ public class Program
                     serializer.Serialize(file, qAndA);
                 }
 
-                using (FileStream file = File.OpenRead(path)) //Deserializing instance
+                using (FileStream txtFile = File.OpenRead(path)) //Deserializing instance
                 {
-                    qAndA = serializer.Deserialize(file) as QuestionsAndAnswers;
+                    qAndA = serializer.Deserialize(txtFile) as QuestionsAndAnswers;
                 }
 
                 // Console.WriteLine(qAndA.Question); //Print question

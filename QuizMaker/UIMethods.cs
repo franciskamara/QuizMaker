@@ -64,11 +64,23 @@ public class UIMethods
         return qAndA.Question;
     }
 
-    // public static string AnswersInput()
-    // {
-    //     
-    //     Console.Write($"Input answer {aInput + 1}: ");
-    //     qAndA.answers.Add(Console.ReadLine());
-    //     Console.Clear();
-    // }
+    public static List<string> InputAnswers(int aInput)
+    {
+        QuestionsAndAnswers qAndA = new();
+        Console.Write($"Input answer {aInput + 1}: ");
+        qAndA.answers.Add(Console.ReadLine());
+        Console.Clear();
+
+        return qAndA.answers;
+    }
+
+    public static int InputCorrectAnswerIndex()
+    {
+        QuestionsAndAnswers qAndA = new();
+        Console.Write("Choose the correct answer index: ");
+        qAndA.correctAnswer = Int32.Parse(Console.ReadLine()); //Correct answer index input
+        Console.Clear();
+
+        return qAndA.correctAnswer;
+    }
 }
