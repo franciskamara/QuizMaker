@@ -26,23 +26,13 @@ public class Program
             {
                 QuestionsAndAnswers qAndA = new();
 
-                UIMethods.QuestionInput();
+                qAndA.question = UIMethods.InputQuestion();
 
-                for (int aInput = 0; aInput < numberOfAnswers; aInput++) //Loop: answers input
-                {
-                    UIMethods.InputAnswers(aInput);
-                    // Console.Write($"Input answer {aInput + 1}: ");
-                    // qAndA.answers.Add(Console.ReadLine());
-                    // Console.Clear();
-                }
+                qAndA.answers = UIMethods.InputAnswers(numberOfAnswers);
 
-                UIMethods.InputCorrectAnswerIndex();
-                // Console.Write("Choose the correct answer index: ");
-                // qAndA.correctAnswer = Int32.Parse(Console.ReadLine()); //Correct answer index input
-                // Console.Clear();
+                qAndA.correctAnswer = UIMethods.InputCorrectAnswerIndex();
 
-
-                qList.Add(qAndA); //Add instance
+                qList.Add(qAndA); //Add questions and answers/answer to list
 
                 XmlSerializer serializer = new XmlSerializer(typeof(QuestionsAndAnswers)); //Serialize instance data
                 var path = @"QuestionsAndAnswersList.xml"; //Naming

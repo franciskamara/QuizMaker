@@ -11,17 +11,18 @@ public class UIMethods
         Console.WriteLine("****************************");
         Console.WriteLine();
     }
-    
+
     /// <summary>
     /// Question for user to Play or Input Questions/Answers
     /// </summary>
     /// <returns>User selection</returns>
     public static char PlayOrQuestionSelect()
     {
-        Console.Write($"Input ({Program.playOption}) to Play or input ({Program.questionInput}) to create Questions & Answers: ");
+        Console.Write(
+            $"Input ({Program.playOption}) to Play or input ({Program.questionInput}) to create Questions & Answers: ");
         char userSelection = Console.ReadKey().KeyChar;
         Console.Clear();
-        
+
         return userSelection;
     }
 
@@ -33,7 +34,7 @@ public class UIMethods
     {
         Console.Write("How many questions do you wish to include? ");
         int numberOfQuestions = int.Parse(Console.ReadLine()); //Quantity of questions to input
-        
+
         return numberOfQuestions;
     }
 
@@ -54,33 +55,35 @@ public class UIMethods
     /// User input question 
     /// </summary>
     /// <returns>Question innput</returns>
-    public static string QuestionInput()
+    public static string InputQuestion()
     {
-        QuestionsAndAnswers qAndA = new();
+        
         Console.Write("Input the question: ");
-        qAndA.Question = Console.ReadLine();
+        string question = Console.ReadLine();
         Console.Clear();
 
-        return qAndA.Question;
+        return question;
     }
 
-    public static List<string> InputAnswers(int aInput)
+    public static List<string> InputAnswers(int numberOfAnswers)
     {
-        QuestionsAndAnswers qAndA = new();
-        Console.Write($"Input answer {aInput + 1}: ");
-        qAndA.answers.Add(Console.ReadLine());
-        Console.Clear();
+        List<string> answers = new();
+        for (int aInput = 0; aInput < numberOfAnswers; aInput++) //Loop: answers input
+        {
+            Console.Write($"Input answer {aInput + 1}: ");
+            answers.Add(Console.ReadLine());
+            Console.Clear();
+        }
 
-        return qAndA.answers;
+        return answers;
     }
 
     public static int InputCorrectAnswerIndex()
     {
-        QuestionsAndAnswers qAndA = new();
         Console.Write("Choose the correct answer index: ");
-        qAndA.correctAnswer = Int32.Parse(Console.ReadLine()); //Correct answer index input
+        int correctAnswer = Int32.Parse(Console.ReadLine()); //Correct answer index input
         Console.Clear();
 
-        return qAndA.correctAnswer;
+        return correctAnswer;
     }
 }
