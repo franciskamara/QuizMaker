@@ -5,10 +5,6 @@ namespace QuizMaker;
 
 public class Program
 {
-    //User game selection constants
-    public const char PLAY_OPTION = '1';
-    public const char QUESTION_INPUT_OPTION = '2';
-
     public static void Main()
     {
         UIMethods.PrintWelcomeMessage();
@@ -16,7 +12,7 @@ public class Program
         char userSelection = UIMethods.PlayOrQuestionSelect();
 
 
-        if (userSelection == QUESTION_INPUT_OPTION)
+        if (userSelection == CONSTANTS.QUESTION_INPUT_OPTION)
         {
             int numberOfQuestions = UIMethods.InputNumberOfQuestions();
             int numberOfAnswers = UIMethods.InputNumberOfAnswers();
@@ -27,7 +23,7 @@ public class Program
             for (int qInput = 0; qInput < numberOfQuestions; qInput++) //Loop: question input
             {
                 QuestionsAndAnswers FileQuesAndAnswers = new();
-                FileQuesAndAnswers.questions = UIMethods.InputQuestion();
+                FileQuesAndAnswers.questions = UIMethods.InputQuestions();
 
                 FileQuesAndAnswers.answers = UIMethods.InputAnswers(numberOfAnswers);
 
@@ -40,7 +36,7 @@ public class Program
         }
 
 
-        if (userSelection == PLAY_OPTION)
+        if (userSelection == CONSTANTS.PLAY_OPTION)
         {
             //Random question generator
             List<string> qAndA = new();
@@ -48,7 +44,7 @@ public class Program
             // string randomQuestion = random.ToString();
         }
 
-        if (userSelection != QUESTION_INPUT_OPTION && userSelection != PLAY_OPTION)
+        if (userSelection != CONSTANTS.QUESTION_INPUT_OPTION && userSelection != CONSTANTS.PLAY_OPTION)
         {
             Console.WriteLine("Invalid selection");
             return;

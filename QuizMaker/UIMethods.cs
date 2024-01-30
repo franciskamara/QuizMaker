@@ -19,7 +19,7 @@ public class UIMethods
     public static char PlayOrQuestionSelect()
     {
         Console.Write(
-            $"Input ({Program.PLAY_OPTION}) to Play or input ({Program.QUESTION_INPUT_OPTION}) to create Questions & Answers: ");
+            $"Input ({CONSTANTS.PLAY_OPTION}) to Play or input ({CONSTANTS.QUESTION_INPUT_OPTION}) to create Questions & Answers: ");
         char userSelection = Console.ReadKey().KeyChar;
         Console.Clear();
 
@@ -52,10 +52,10 @@ public class UIMethods
     }
 
     /// <summary>
-    /// User input question 
+    /// User question input
     /// </summary>
-    /// <returns>Question innput</returns>
-    public static List<string> InputQuestion()
+    /// <returns>User question input</returns>
+    public static List<string> InputQuestions()
     {
         List<string> questions = new();
         Console.Write("Input the question: ");
