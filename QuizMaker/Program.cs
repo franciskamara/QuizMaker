@@ -18,21 +18,21 @@ public class Program
             int numberOfAnswers = UIMethods.InputNumberOfAnswers();
 
             List<QuestionsAndAnswers>
-                ListQuesAndAnswers = new(); //Create a new Instance (List) of QuestionsAndAnswers object/class
+                listQuesAndAnswers = new(); //Create a new Instance (List) of QuestionsAndAnswers object/class
 
             for (int qInput = 0; qInput < numberOfQuestions; qInput++) //Loop: question input
             {
-                QuestionsAndAnswers FileQuesAndAnswers = new();
-                FileQuesAndAnswers.questions = UIMethods.InputQuestions();
+                QuestionsAndAnswers fileQuesAndAnswers = new();
+                fileQuesAndAnswers.questions = UIMethods.InputQuestions();
 
-                FileQuesAndAnswers.answers = UIMethods.InputAnswers(numberOfAnswers);
+                fileQuesAndAnswers.answers = UIMethods.InputAnswers(numberOfAnswers);
 
-                FileQuesAndAnswers.correctAnswer = UIMethods.InputCorrectAnswerIndex();
+                fileQuesAndAnswers.correctAnswer = UIMethods.InputCorrectAnswerIndex();
 
-                ListQuesAndAnswers.Add(FileQuesAndAnswers); //Add questions and answer(s) to list
+                listQuesAndAnswers.Add(fileQuesAndAnswers); //Add questions and answer(s) to list
             }
 
-            FileUtils.SaveData(FileQuesAndAnswers);
+            FileUtils.SaveData(fileQuesAndAnswers);
         }
 
 
