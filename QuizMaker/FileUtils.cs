@@ -4,16 +4,14 @@ namespace QuizMaker;
 
 public class FileUtils
 {
-    public static void SaveData(QuestionsAndAnswers fileQuesAndAnswers)
+    public static void SaveData(List<QuestionsAndAnswers> listQuesAndAnswers)
     {
-        
-        XmlSerializer serializer = new XmlSerializer(typeof(QuestionsAndAnswers)); //Serialize instance data
-        var path = CONSTANTS.SERIALIZER_PATH; //Serializer naming
-        using (FileStream file = File.Create(path)) //Write data in path file
+        XmlSerializer serializer = new XmlSerializer(typeof(List<QuestionsAndAnswers>)); // Serialize list data
+        string path = CONSTANTS.SERIALIZER_PATH; // Serializer naming
+        using (FileStream file = File.Create(path)) // Write data to the file
         {
-            serializer.Serialize(file, fileQuesAndAnswers);
+            serializer.Serialize(file, listQuesAndAnswers);
         }
-        
     }
 
     public static QuestionsAndAnswers LoadData()
