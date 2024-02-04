@@ -19,7 +19,7 @@ public class UIMethods
     public static char PlayOrQuestionSelect()
     {
         Console.Write(
-            $"Input ({CONSTANTS.PLAY_OPTION}) to Play \nnput ({CONSTANTS.QUESTION_INPUT_OPTION}) to create Questions & Answers: ");
+            $"Input ({CONSTANTS.PLAY_OPTION}) to Play \nInput ({CONSTANTS.QUESTION_INPUT_OPTION}) to create Questions & Answers: ");
         char userSelection = Console.ReadKey().KeyChar;
         Console.Clear();
 
@@ -102,13 +102,13 @@ public class UIMethods
     /// <param name="randomQuestion"></param>
     public static void PrintQuestionAndAnswers(QuestionsAndAnswers randomQuestion)
     {
-        Console.Write("Q: ");//Question print
+        Console.Write("Q: ");//Print the random question 
         foreach (string question in randomQuestion.questions)
         {
             Console.WriteLine(question);
         }
                     
-        Console.WriteLine("Choose one of the following answers: ");//Answers print
+        Console.WriteLine("Pick your answer: ");//Print the answers for the question 
         foreach (string answer in randomQuestion.answers)
         {
             Console.WriteLine($"- {answer}");
