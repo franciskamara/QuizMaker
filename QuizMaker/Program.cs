@@ -47,13 +47,13 @@ public class Program
 
                 if (randomQuestion != null)
                 {
-                    UIMethods.PrintQuestionAndAnswers(randomQuestion);
+                    UIMethods.PrintQuestionAndAnswers(randomQuestion);//Print Random Q&A from List
 
                     loadedQuesAndAnswers.Remove(randomQuestion); // Remove the selected question from the list
                 }
                 else
                 {
-                    UIMethods.NoQuestionsAvailableMessage();
+                    UIMethods.NoQuestionsAvailableMessage();//Question unavailable for gameplay 
                     
                 }
             }
