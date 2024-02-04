@@ -95,12 +95,37 @@ public class UIMethods
 
         return correctAnswer;
     }
+
+    /// <summary>
+    /// Gameplay: Print a Question with its Answers
+    /// </summary>
+    /// <param name="randomQuestion"></param>
+    public static void PrintQuestionAndAnswers(QuestionsAndAnswers randomQuestion)
+    {
+        Console.Write("Q: ");//Question print
+        foreach (string question in randomQuestion.questions)
+        {
+            Console.WriteLine($"- {question}");
+        }
+                    
+        Console.WriteLine("Choose one of the following answers: ");//Answers print
+        foreach (string answer in randomQuestion.answers)
+        {
+            Console.WriteLine($"- {answer}");
+        }
+    }
     
+    /// <summary>
+    /// Notify user that no questions have been saved to play the game 
+    /// </summary>
     public static void NoQuestionsAvailableMessage()
     {
         Console.WriteLine("No questions available. Please add questions before playing.");
     }
 
+    /// <summary>
+    /// Notify user that they have picked a wrong option from Game play to Q&A input
+    /// </summary>
     public static void InvalidSelectionMessage()
     {
         Console.WriteLine("Invalid selection");

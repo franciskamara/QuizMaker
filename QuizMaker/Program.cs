@@ -47,13 +47,7 @@ public class Program
 
                 if (randomQuestion != null)
                 {
-                    Console.WriteLine("Question: " + randomQuestion.questions);// Display the random question and its associated answers
-
-                    Console.WriteLine("Answers:");
-                    foreach (string answer in randomQuestion.answers)
-                    {
-                        Console.WriteLine("- " + answer);
-                    }
+                    UIMethods.PrintQuestionAndAnswers(randomQuestion);
                     
                     loadedQuesAndAnswers.Remove(randomQuestion); // Remove the selected question from the list
                 }
