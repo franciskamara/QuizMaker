@@ -48,19 +48,19 @@ public class Program
                 if (randomQuestion != null)
                 {
                     UIMethods.PrintQuestionAndAnswers(randomQuestion);
-                    
+
                     loadedQuesAndAnswers.Remove(randomQuestion); // Remove the selected question from the list
                 }
                 else
                 {
                     UIMethods.NoQuestionsAvailableMessage();
-                    // Handle this case appropriately, e.g., allow the user to add questions
+                    
                 }
             }
             else
             {
                 UIMethods.NoQuestionsAvailableMessage();
-                // Handle this case appropriately, e.g., allow the user to add questions
+               
             }
         }
 
