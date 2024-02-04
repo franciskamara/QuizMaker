@@ -24,21 +24,21 @@ public class Program
             {
                 QuestionsAndAnswers questionsAndAnswersSet = new();
 
-                questionsAndAnswersSet.questions = UIMethods.InputQuestions();
+                questionsAndAnswersSet.questions = UIMethods.InputQuestions();//User input the question 
 
-                questionsAndAnswersSet.answers = UIMethods.InputAnswers(numberOfAnswers);
+                questionsAndAnswersSet.answers = UIMethods.InputAnswers(numberOfAnswers);//User input the range of possible answers
 
-                questionsAndAnswersSet.correctAnswer = UIMethods.InputCorrectAnswerIndex();
+                questionsAndAnswersSet.correctAnswer = UIMethods.InputCorrectAnswerIndex();//User inputs the index of correct answer
 
-                listQuesAndAnswers.Add(questionsAndAnswersSet); // Add questions and answer(s) to list
+                listQuesAndAnswers.Add(questionsAndAnswersSet); //Add questions and answer(s) to list
             }
 
-            FileUtils.SaveData(listQuesAndAnswers); // Save the entire list
+            FileUtils.SaveData(listQuesAndAnswers); //Save the entire list
         }
 
         if (userSelection == CONSTANTS.PLAY_OPTION)
         {
-            List<QuestionsAndAnswers> loadedQuesAndAnswers = FileUtils.LoadData();
+            List<QuestionsAndAnswers> loadedQuesAndAnswers = FileUtils.LoadData();//Load Q&A from LoadData serialisation
 
             if (loadedQuesAndAnswers != null && loadedQuesAndAnswers.Count > 0)
             {
