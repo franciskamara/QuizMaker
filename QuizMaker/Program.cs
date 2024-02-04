@@ -47,19 +47,21 @@ public class Program
 
                 if (randomQuestion != null)
                 {
-                    UIMethods.PrintQuestionAndAnswers(randomQuestion);//Print Random Q&A from List
+                    UIMethods.PrintQuestionAndAnswers(randomQuestion);//Print Random Q&A from the list
 
                     loadedQuesAndAnswers.Remove(randomQuestion); // Remove the selected question from the list
                 }
                 else
                 {
                     UIMethods.NoQuestionsAvailableMessage();//Question unavailable for gameplay message
+                    //May need to add more or handle different 
                     
                 }
             }
             else
             {
                 UIMethods.NoQuestionsAvailableMessage();//Question unavailable for gameplay message
+                //May need to add more or handle different 
                
             }
         }
@@ -67,6 +69,7 @@ public class Program
         if (userSelection != CONSTANTS.QUESTION_INPUT_OPTION && userSelection != CONSTANTS.PLAY_OPTION)
         {
             UIMethods.InvalidSelectionMessage();
+            //You may need to handle this seperately!!
             return;
         }
     }

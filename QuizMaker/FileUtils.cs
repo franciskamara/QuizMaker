@@ -14,6 +14,10 @@ public class FileUtils
         }
     }
 
+    /// <summary>
+    /// Return the data from the XML and structures with QuestionsAndAnswers class 
+    /// </summary>
+    /// <returns>List of questions ans answers</returns>
     public static List<QuestionsAndAnswers> LoadData()
     {
         List<QuestionsAndAnswers> returnValue;
@@ -25,6 +29,8 @@ public class FileUtils
         }
 
         return returnValue;
+        
+        //May need to add more here!
     }
     
 }
