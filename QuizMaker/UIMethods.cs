@@ -89,11 +89,21 @@ public class UIMethods
     /// <returns>Correct answer index</returns>
     public static int InputCorrectAnswerIndex()
     {
-        Console.Write("Choose the correct answer index: ");
-        int correctAnswer = Int32.Parse(Console.ReadLine()); //Correct answer index input
-        Console.Clear();
+        int correctAnswer = default;
+        if (Int32.TryParse(Console.ReadLine(), out correctAnswer))
+        {
+            Console.Write("Choose the correct answer index: ");
+            Console.Clear();
+        }
+        else
+        {
+            Console.WriteLine("The input is not valid.");
+        }
+
+        Console.ReadKey();
 
         return correctAnswer;
+        //Might need to look at again.
     }
 
     /// <summary>
