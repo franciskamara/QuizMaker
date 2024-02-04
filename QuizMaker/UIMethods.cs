@@ -57,6 +57,7 @@ public class UIMethods
     /// <returns>User question input</returns>
     public static List<string> InputQuestions()
     {
+        Console.Clear();
         List<string> questions = new();
         Console.Write("Input the question: ");
         questions.Add(Console.ReadLine());
@@ -90,9 +91,10 @@ public class UIMethods
     public static int InputCorrectAnswerIndex()
     {
         int correctAnswer = default;
+
+        Console.Write("Input the correct answer index: ");
         if (Int32.TryParse(Console.ReadLine(), out correctAnswer))
         {
-            Console.Write("Choose the correct answer index: ");
             Console.Clear();
         }
         else
@@ -112,19 +114,19 @@ public class UIMethods
     /// <param name="randomQuestion"></param>
     public static void PrintQuestionAndAnswers(QuestionsAndAnswers randomQuestion)
     {
-        Console.Write("Q: ");//Print the random question 
+        Console.Write("Q: "); //Print the random question 
         foreach (string question in randomQuestion.questions)
         {
             Console.WriteLine(question);
         }
-                    
-        Console.WriteLine("Pick your answer: ");//Print the answers for the question 
+
+        Console.WriteLine("Pick your answer: "); //Print the answers for the question 
         foreach (string answer in randomQuestion.answers)
         {
             Console.WriteLine($"- {answer}");
         }
     }
-    
+
     /// <summary>
     /// Notify user that no questions have been saved to play the game 
     /// </summary>
