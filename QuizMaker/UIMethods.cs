@@ -105,7 +105,7 @@ public class UIMethods
         Console.Write("Q: ");//Question print
         foreach (string question in randomQuestion.questions)
         {
-            Console.WriteLine($"- {question}");
+            Console.WriteLine(question);
         }
                     
         Console.WriteLine("Choose one of the following answers: ");//Answers print

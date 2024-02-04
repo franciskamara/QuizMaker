@@ -53,13 +53,13 @@ public class Program
                 }
                 else
                 {
-                    UIMethods.NoQuestionsAvailableMessage();//Question unavailable for gameplay 
+                    UIMethods.NoQuestionsAvailableMessage();//Question unavailable for gameplay message
                     
                 }
             }
             else
             {
-                UIMethods.NoQuestionsAvailableMessage();
+                UIMethods.NoQuestionsAvailableMessage();//Question unavailable for gameplay message
                
             }
         }
