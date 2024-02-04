@@ -19,7 +19,7 @@ public class UIMethods
     public static char PlayOrQuestionSelect()
     {
         Console.Write(
-            $"Input ({CONSTANTS.PLAY_OPTION}) to Play or input ({CONSTANTS.QUESTION_INPUT_OPTION}) to create Questions & Answers: ");
+            $"Input ({CONSTANTS.PLAY_OPTION}) to Play \nnput ({CONSTANTS.QUESTION_INPUT_OPTION}) to create Questions & Answers: ");
         char userSelection = Console.ReadKey().KeyChar;
         Console.Clear();
 
@@ -94,5 +94,15 @@ public class UIMethods
         Console.Clear();
 
         return correctAnswer;
+    }
+    
+    public static void NoQuestionsAvailableMessage()
+    {
+        Console.WriteLine("No questions available. Please add questions before playing.");
+    }
+
+    public static void InvalidSelectionMessage()
+    {
+        Console.WriteLine("Invalid selection");
     }
 }

@@ -14,16 +14,17 @@ public class FileUtils
         }
     }
 
-    public static QuestionsAndAnswers LoadData()
+    public static List<QuestionsAndAnswers> LoadData()
     {
-        QuestionsAndAnswers returnValue;
-        XmlSerializer deserializer = new XmlSerializer(typeof(QuestionsAndAnswers));
+        List<QuestionsAndAnswers> returnValue;
+        XmlSerializer deserializer = new XmlSerializer(typeof(List<QuestionsAndAnswers>));
         string path = CONSTANTS.SERIALIZER_PATH; //Naming
-        using (FileStream txtFile = File.OpenRead(path)) //Deserializing instance
+        using (FileStream txtFile = File.OpenRead(path)) //Deserializing list
         {
-            returnValue = deserializer.Deserialize(txtFile) as QuestionsAndAnswers;
+            returnValue = deserializer.Deserialize(txtFile) as List<QuestionsAndAnswers>;
         }
 
         return returnValue;
     }
+    
 }
