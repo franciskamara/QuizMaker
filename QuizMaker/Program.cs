@@ -43,12 +43,12 @@ public class Program
             List<QuestionsAndAnswers>
                 loadedQuesAndAnswers = FileUtils.LoadData(); //Load Q&A from LoadData serialisation
 
-            if (loadedQuesAndAnswers != null && loadedQuesAndAnswers.Count > 0)
+            if (loadedQuesAndAnswers is not null && loadedQuesAndAnswers.Count > 0)
             {
                 // Pull randomly selected question and answers 
                 QuestionsAndAnswers randomQuestion = LogicMethods.RandomQuestionGenerator(loadedQuesAndAnswers);
 
-                if (randomQuestion != null)
+                if (randomQuestion is not null)
                 {
                     UIMethods.PrintQuestionAndAnswers(randomQuestion); //Print Random Q&A from the list
 

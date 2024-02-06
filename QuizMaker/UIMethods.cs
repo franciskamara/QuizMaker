@@ -78,7 +78,7 @@ public class UIMethods
         List<string> answers = new();
         for (int aInput = 0; aInput < numberOfAnswers; aInput++) //Loop: answers input
         {
-            Console.Write($"Input answer {aInput + 1}: ");
+            Console.Write($"Input answer no.{aInput + 1}: ");
             answers.Add(Console.ReadLine());
             Console.Clear();
         }
@@ -107,7 +107,7 @@ public class UIMethods
                 else
                 {
                     Console.WriteLine(
-                        $"The correct answer index input should be between 0 and less than {numberOfAnswers}.");
+                        $"The correct answer index should be between 0 and less than {numberOfAnswers}.");
                 }
             }
             else
