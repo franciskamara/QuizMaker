@@ -94,7 +94,7 @@ public class UIMethods
     {
         int correctAnswerIndex = 0;
 
-        while (true) //While Loop: continue looping until user enters a valid input
+        while (true) //While loop: infinite until correct input is made
         {
             Console.Write("Please enter the correct answer index: ");
             if (Int32.TryParse(Console.ReadLine(), out correctAnswerIndex))
@@ -106,7 +106,7 @@ public class UIMethods
                 }
                 else
                 {
-                    Console.WriteLine($"The input should be less than {numberOfAnswers}.");
+                    Console.WriteLine($"The correct answer index input should be between 0 and less than {numberOfAnswers}.");
                 }
             }
             else
