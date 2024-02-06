@@ -28,7 +28,7 @@ public class Program
 
                 questionsAndAnswersSet.answers = UIMethods.InputAnswers(numberOfAnswers);//User input the range of possible answers
 
-                questionsAndAnswersSet.correctAnswer = UIMethods.InputCorrectAnswerIndex();//User inputs the index of correct answer
+                questionsAndAnswersSet.correctAnswer = UIMethods.InputCorrectAnswerIndex(numberOfAnswers);//User inputs the index of correct answer
 
                 listQuesAndAnswers.Add(questionsAndAnswersSet); //Add questions and answer(s) to list
             }
@@ -36,7 +36,7 @@ public class Program
             FileUtils.SaveData(listQuesAndAnswers); //Save the entire list
         }
 
-        if (userSelection == CONSTANTS.PLAY_OPTION)
+        if (userSelection == CONSTANTS.PLAY_OPTION_INPUT)
         {
             List<QuestionsAndAnswers> loadedQuesAndAnswers = FileUtils.LoadData();//Load Q&A from LoadData serialisation
 
@@ -66,7 +66,7 @@ public class Program
             }
         }
 
-        if (userSelection != CONSTANTS.QUESTION_INPUT_OPTION && userSelection != CONSTANTS.PLAY_OPTION)
+        if (userSelection != CONSTANTS.QUESTION_INPUT_OPTION && userSelection != CONSTANTS.PLAY_OPTION_INPUT)
         {
             UIMethods.InvalidSelectionMessage();
             //You may need to handle this seperately!!

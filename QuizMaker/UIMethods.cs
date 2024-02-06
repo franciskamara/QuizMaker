@@ -1,3 +1,5 @@
+using System.Net;
+
 namespace QuizMaker;
 
 public class UIMethods
@@ -19,7 +21,7 @@ public class UIMethods
     public static char PlayOrQuestionSelect()
     {
         Console.Write(
-            $"Input ({CONSTANTS.PLAY_OPTION}) to Play \nInput ({CONSTANTS.QUESTION_INPUT_OPTION}) to create Questions & Answers: ");
+            $"Input ({CONSTANTS.PLAY_OPTION_INPUT}) to Play \nInput ({CONSTANTS.QUESTION_INPUT_OPTION}) to create Questions & Answers: ");
         char userSelection = Console.ReadKey().KeyChar;
         Console.Clear();
 
@@ -88,21 +90,30 @@ public class UIMethods
     /// User input the correct answer's index
     /// </summary>
     /// <returns>Correct answer index</returns>
-    public static int InputCorrectAnswerIndex()
+    public static int InputCorrectAnswerIndex(int numberOfAnswers)
     {
-        int correctAnswer = default;
+        int correctAnswer = 0;
 
-        Console.Write("Input the correct answer index: ");
-        if (Int32.TryParse(Console.ReadLine(), out correctAnswer))
+        while (true) 
         {
-            Console.Clear();
+            Console.Write("Please enter the correct answer index: ");
+            if (Int32.TryParse(Console.ReadLine(), out correctAnswer))
+            {
+                if (correctAnswer < numberOfAnswers)
+                {
+                    Console.Clear(); 
+                    break; //Exit the loop if the input is valid and less than numberOfAnswers
+                }
+                else
+                {
+                    Console.WriteLine($"The input should be less than {numberOfAnswers}.");
+                }
+            }
+            else
+            {
+                Console.WriteLine("The input is not valid.");
+            }
         }
-        else
-        {
-            Console.WriteLine("The input is not valid.");
-        }
-
-        Console.ReadKey();
 
         return correctAnswer;
         //Might need to look at again.
