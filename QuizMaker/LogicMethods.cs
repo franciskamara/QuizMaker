@@ -9,12 +9,12 @@ public class LogicMethods
     /// <returns>A random question, if questions are available</returns>
     public static QuestionsAndAnswers RandomQuestionGenerator(List<QuestionsAndAnswers> loadedQuesAndAnswers)
     {
-        QuestionsAndAnswers randomQuestion = null;//Print random Q&A 
+        QuestionsAndAnswers randomQuestion = null; 
 
-        if (loadedQuesAndAnswers != null && loadedQuesAndAnswers.Count > 0)//Is there another way to handle this???
+        if (loadedQuesAndAnswers != null && loadedQuesAndAnswers.Count > 0)
         {
             Random rng = new Random();
-            randomQuestion = loadedQuesAndAnswers[rng.Next(loadedQuesAndAnswers.Count)];
+            randomQuestion = loadedQuesAndAnswers[rng.Next(loadedQuesAndAnswers.Count)];//Print random Q&A
         }
         else
         {

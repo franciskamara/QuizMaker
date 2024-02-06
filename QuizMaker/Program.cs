@@ -24,11 +24,13 @@ public class Program
             {
                 QuestionsAndAnswers questionsAndAnswersSet = new();
 
-                questionsAndAnswersSet.questions = UIMethods.InputQuestions();//User input the question 
+                questionsAndAnswersSet.questions = UIMethods.InputQuestions(); //User input the question 
 
-                questionsAndAnswersSet.answers = UIMethods.InputAnswers(numberOfAnswers);//User input the range of possible answers
+                questionsAndAnswersSet.answers =
+                    UIMethods.InputAnswers(numberOfAnswers); //User input the range of possible answers
 
-                questionsAndAnswersSet.correctAnswer = UIMethods.InputCorrectAnswerIndex(numberOfAnswers);//User inputs the index of correct answer
+                questionsAndAnswersSet.correctAnswer =
+                    UIMethods.InputCorrectAnswerIndex(numberOfAnswers); //User inputs the index of correct answer
 
                 listQuesAndAnswers.Add(questionsAndAnswersSet); //Add questions and answer(s) to list
             }
@@ -38,7 +40,8 @@ public class Program
 
         if (userSelection == CONSTANTS.PLAY_OPTION_INPUT)
         {
-            List<QuestionsAndAnswers> loadedQuesAndAnswers = FileUtils.LoadData();//Load Q&A from LoadData serialisation
+            List<QuestionsAndAnswers>
+                loadedQuesAndAnswers = FileUtils.LoadData(); //Load Q&A from LoadData serialisation
 
             if (loadedQuesAndAnswers != null && loadedQuesAndAnswers.Count > 0)
             {
@@ -47,22 +50,20 @@ public class Program
 
                 if (randomQuestion != null)
                 {
-                    UIMethods.PrintQuestionAndAnswers(randomQuestion);//Print Random Q&A from the list
+                    UIMethods.PrintQuestionAndAnswers(randomQuestion); //Print Random Q&A from the list
 
                     loadedQuesAndAnswers.Remove(randomQuestion); // Remove the selected question from the list
                 }
                 else
                 {
-                    UIMethods.NoQuestionsAvailableMessage();//Question unavailable for gameplay message
+                    UIMethods.NoQuestionsAvailableMessage(); //Question unavailable for gameplay message
                     //May need to add more or handle different 
-                    
                 }
             }
             else
             {
-                UIMethods.NoQuestionsAvailableMessage();//Question unavailable for gameplay message
+                UIMethods.NoQuestionsAvailableMessage(); //Question unavailable for gameplay message
                 //May need to add more or handle different 
-               
             }
         }
 

@@ -101,12 +101,13 @@ public class UIMethods
             {
                 if (correctAnswerIndex < numberOfAnswers)
                 {
-                    Console.Clear(); 
+                    Console.Clear();
                     break; //Exit the loop if the input is valid and less than numberOfAnswers
                 }
                 else
                 {
-                    Console.WriteLine($"The correct answer index input should be between 0 and less than {numberOfAnswers}.");
+                    Console.WriteLine(
+                        $"The correct answer index input should be between 0 and less than {numberOfAnswers}.");
                 }
             }
             else
