@@ -92,14 +92,14 @@ public class UIMethods
     /// <returns>Correct answer index</returns>
     public static int InputCorrectAnswerIndex(int numberOfAnswers)
     {
-        int correctAnswer = 0;
+        int correctAnswerIndex = 0;
 
-        while (true) 
+        while (true) //While Loop: continue looping until user enters a valid input
         {
             Console.Write("Please enter the correct answer index: ");
-            if (Int32.TryParse(Console.ReadLine(), out correctAnswer))
+            if (Int32.TryParse(Console.ReadLine(), out correctAnswerIndex))
             {
-                if (correctAnswer < numberOfAnswers)
+                if (correctAnswerIndex < numberOfAnswers)
                 {
                     Console.Clear(); 
                     break; //Exit the loop if the input is valid and less than numberOfAnswers
@@ -115,8 +115,7 @@ public class UIMethods
             }
         }
 
-        return correctAnswer;
-        //Might need to look at again.
+        return correctAnswerIndex;
     }
 
     /// <summary>
