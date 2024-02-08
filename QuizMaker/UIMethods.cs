@@ -57,15 +57,14 @@ public class UIMethods
     /// User question input
     /// </summary>
     /// <returns>User question input</returns>
-    public static List<string> InputQuestions()
+    public static string InputQuestion()
     {
         Console.Clear();
-        List<string> questions = new();
         Console.Write("Input the question: ");
-        questions.Add(Console.ReadLine());
+        string question = Console.ReadLine();
         Console.Clear();
 
-        return questions;
+        return question;
     }
 
     /// <summary>
@@ -78,7 +77,7 @@ public class UIMethods
         List<string> answers = new();
         for (int aInput = 0; aInput < numberOfAnswers; aInput++) //Loop: answers input
         {
-            Console.Write($"Input answer no.{aInput + 1}: ");
+            Console.Write($"Input answer No.{aInput + 1}: ");
             answers.Add(Console.ReadLine());
             Console.Clear();
         }
@@ -122,20 +121,17 @@ public class UIMethods
     /// <summary>
     /// Gameplay: Print a Question with its Answers
     /// </summary>
-    /// <param name="randomQuestion"></param>
-    public static void PrintQuestionAndAnswers(QuestionsAndAnswers randomQuestion)
+    /// <param name="randomQ"></param>
+    public static void PrintQuestionAndAnswers(QuestionsAndAnswers randomQ)
     {
-        Console.Write("Q: "); //Print the random question 
-        foreach (string question in randomQuestion.questions)
-        {
-            Console.WriteLine(question);
-        }
+        Console.WriteLine($"Question: {randomQ.Question}"); //Print the random question 
 
-        Console.WriteLine("Pick your answer: "); //Print the answers for the question 
-        foreach (string answer in randomQuestion.answers)
+        Console.WriteLine("Optional answers: "); //Print the answers for the question 
+        for (int answerCount = 0; answerCount < randomQ.Answers.Count; answerCount++)
         {
-            Console.WriteLine($"- {answer}");
+            Console.WriteLine($"{answerCount + 1}: {randomQ.Answers[answerCount]}");
         }
+        
     }
 
     /// <summary>

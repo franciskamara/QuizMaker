@@ -24,9 +24,9 @@ public class Program
             {
                 QuestionsAndAnswers questionsAndAnswersSet = new();
 
-                questionsAndAnswersSet.questions = UIMethods.InputQuestions(); //User input the question 
+                questionsAndAnswersSet.Question = UIMethods.InputQuestion(); //User input the question 
 
-                questionsAndAnswersSet.answers =
+                questionsAndAnswersSet.Answers =
                     UIMethods.InputAnswers(numberOfAnswers); //User input the range of possible answers
 
                 questionsAndAnswersSet.correctAnswer =
@@ -36,23 +36,24 @@ public class Program
             }
 
             FileUtils.SaveData(listQuesAndAnswers); //Save the entire list
-        }
+        }//End: Question input option
 
+        
         if (userSelection == CONSTANTS.PLAY_OPTION_INPUT)
         {
             List<QuestionsAndAnswers>
-                loadedQuesAndAnswers = FileUtils.LoadData(); //Load Q&A from LoadData serialisation
+                loadedQAndA = FileUtils.LoadData(); //Load Q&A from LoadData serialisation
 
-            if (loadedQuesAndAnswers is not null && loadedQuesAndAnswers.Count > 0)
+            if (loadedQAndA != null && loadedQAndA.Count > 0)
             {
                 // Pull randomly selected question and answers 
-                QuestionsAndAnswers randomQuestion = LogicMethods.RandomQuestionGenerator(loadedQuesAndAnswers);
+                QuestionsAndAnswers randomQAndA = LogicMethods.RandomQuestionGenerator(loadedQAndA);
 
-                if (randomQuestion is not null)
+                if (randomQAndA != null)
                 {
-                    UIMethods.PrintQuestionAndAnswers(randomQuestion); //Print Random Q&A from the list
+                    UIMethods.PrintQuestionAndAnswers(randomQAndA); //Print Random Q&A from the list
 
-                    loadedQuesAndAnswers.Remove(randomQuestion); // Remove the selected question from the list
+                    //loadedQAndA.Remove(randomQ); // Remove the selected question from the list
                 }
                 else
                 {
@@ -63,9 +64,20 @@ public class Program
             else
             {
                 UIMethods.NoQuestionsAvailableMessage(); //Question unavailable for gameplay message
+                return;
                 //May need to add more or handle different 
             }
-        }
+
+            Console.WriteLine();
+            Console.Write("What is your answer no.: ");
+            char userAnswer = Console.ReadKey().KeyChar;
+
+            if (userAnswer == loadedQAndA.)
+            {
+                
+            }
+
+        }//End: Play option
 
         if (userSelection != CONSTANTS.QUESTION_INPUT_OPTION && userSelection != CONSTANTS.PLAY_OPTION_INPUT)
         {

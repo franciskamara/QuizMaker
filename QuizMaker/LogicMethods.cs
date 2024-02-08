@@ -5,22 +5,22 @@ public class LogicMethods
     /// <summary>
     /// Generator of Q&A from XML and structure using  QuestionsAndAnswers class
     /// </summary>
-    /// <param name="loadedQuesAndAnswers"></param>
+    /// <param name="loadedQAndA"></param>
     /// <returns>A random question, if questions are available</returns>
-    public static QuestionsAndAnswers RandomQuestionGenerator(List<QuestionsAndAnswers> loadedQuesAndAnswers)
+    public static QuestionsAndAnswers RandomQuestionGenerator(List<QuestionsAndAnswers> loadedQAndA)
     {
-        QuestionsAndAnswers randomQuestion = null; 
+        QuestionsAndAnswers randomQ = null; 
 
-        if (loadedQuesAndAnswers != null && loadedQuesAndAnswers.Count > 0)
+        if (loadedQAndA != null && loadedQAndA.Count > 0)
         {
             Random rng = new Random();
-            randomQuestion = loadedQuesAndAnswers[rng.Next(loadedQuesAndAnswers.Count)];//Print random Q&A
+            randomQ = loadedQAndA[rng.Next(loadedQAndA.Count)];//Print random Q&A
         }
         else
         {
             Console.WriteLine("No questions available. Please add questions before playing.");
         }
 
-        return randomQuestion;
+        return randomQ;
     }
 }
