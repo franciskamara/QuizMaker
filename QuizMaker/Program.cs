@@ -51,9 +51,13 @@ public class Program
 
                 if (randomQAndA != null)
                 {
+                    int points = 0;
                     UIMethods.PrintQuestionAndAnswers(randomQAndA); //Print Random Q&A from the list
 
                     //loadedQAndA.Remove(randomQ); // Remove the selected question from the list
+
+                    UIMethods.UserAnswerInputAndOutcome(randomQAndA, points);
+                    
                 }
                 else
                 {
@@ -68,14 +72,6 @@ public class Program
                 //May need to add more or handle different 
             }
 
-            Console.WriteLine();
-            Console.Write("What is your answer no.: ");
-            char userAnswer = Console.ReadKey().KeyChar;
-
-            if (userAnswer == loadedQAndA.)
-            {
-                
-            }
 
         }//End: Play option
 

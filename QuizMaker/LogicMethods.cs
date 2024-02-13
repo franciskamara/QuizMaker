@@ -9,18 +9,18 @@ public class LogicMethods
     /// <returns>A random question, if questions are available</returns>
     public static QuestionsAndAnswers RandomQuestionGenerator(List<QuestionsAndAnswers> loadedQAndA)
     {
-        QuestionsAndAnswers randomQ = null; 
+        QuestionsAndAnswers randomQAndA = null; 
 
         if (loadedQAndA != null && loadedQAndA.Count > 0)
         {
             Random rng = new Random();
-            randomQ = loadedQAndA[rng.Next(loadedQAndA.Count)];//Print random Q&A
+            randomQAndA = loadedQAndA[rng.Next(loadedQAndA.Count)];//Print random Q&A
         }
         else
         {
             Console.WriteLine("No questions available. Please add questions before playing.");
         }
 
-        return randomQ;
+        return randomQAndA;
     }
 }

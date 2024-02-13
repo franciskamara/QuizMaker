@@ -131,7 +131,6 @@ public class UIMethods
         {
             Console.WriteLine($"{answerCount + 1}: {randomQ.Answers[answerCount]}");
         }
-        
     }
 
     /// <summary>
@@ -148,5 +147,26 @@ public class UIMethods
     public static void InvalidSelectionMessage()
     {
         Console.WriteLine("Invalid selection");
+    }
+
+    public static void UserAnswerInputAndOutcome(QuestionsAndAnswers randomQAndA, int points)
+    {
+        int indexReduction = 1;
+
+        Console.WriteLine();
+        Console.Write("What is your answer no.: ");
+        char userAnswer = Console.ReadKey().KeyChar;
+
+        if (userAnswer - indexReduction == randomQAndA.correctAnswer)
+        {
+            Console.Clear();
+            Console.WriteLine("Correct answer");
+            points += 1;
+        }
+        else
+        {
+            Console.Clear();
+            Console.WriteLine("Incorrect answer");
+        }
     }
 }
