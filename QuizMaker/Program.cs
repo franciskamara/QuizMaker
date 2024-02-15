@@ -56,8 +56,9 @@ public class Program
 
                     //loadedQAndA.Remove(randomQ); // Remove the selected question from the list
 
-                    UIMethods.UserAnswerInputAndOutcome(randomQAndA, points);
+                    int userAnswer = UIMethods.UserAnswerInput(randomQAndA); //User makes an answer input
                     
+                    UIMethods.UserAnswerResult(userAnswer, randomQAndA, points);//Outcome from user answer
                 }
                 else
                 {

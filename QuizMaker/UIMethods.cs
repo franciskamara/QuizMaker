@@ -149,14 +149,21 @@ public class UIMethods
         Console.WriteLine("Invalid selection");
     }
 
-    public static void UserAnswerInputAndOutcome(QuestionsAndAnswers randomQAndA, int points)
+    public static int UserAnswerInput(QuestionsAndAnswers randomQAndA)
     {
-        int indexReduction = 1;
+        
 
         Console.WriteLine();
         Console.Write("What is your answer no.: ");
-        char userAnswer = Console.ReadKey().KeyChar;
+        int userAnswer = Console.ReadKey().KeyChar;
 
+        return userAnswer;
+    }
+
+    public static void UserAnswerResult(int userAnswer, QuestionsAndAnswers randomQAndA, int points)
+    {
+        int indexReduction = 1;
+        
         if (userAnswer - indexReduction == randomQAndA.correctAnswer)
         {
             Console.Clear();
@@ -168,5 +175,6 @@ public class UIMethods
             Console.Clear();
             Console.WriteLine("Incorrect answer");
         }
+        
     }
 }
