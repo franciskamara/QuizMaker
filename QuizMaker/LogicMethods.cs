@@ -3,7 +3,7 @@ namespace QuizMaker;
 public class LogicMethods
 {
     /// <summary>
-    /// Generator of Q&A from XML and structure using  QuestionsAndAnswers class
+    /// Generator of Q&A from XML and structure using QuestionsAndAnswers class
     /// </summary>
     /// <param name="loadedQAndA"></param>
     /// <returns>A random question, if questions are available</returns>
@@ -24,6 +24,10 @@ public class LogicMethods
         return randomQAndA;
     }
 
+    /// <summary>
+    /// Print point total
+    /// </summary>
+    /// <param name="points"></param>
     public static void PrintPoints(int points)
     {
         Console.WriteLine($"Points: {points}");

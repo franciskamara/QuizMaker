@@ -21,7 +21,7 @@ public class UIMethods
     public static char PlayOrQuestionSelect()
     {
         Console.Write(
-            $"Input ({CONSTANTS.PLAY_OPTION_INPUT}) to Play \nInput ({CONSTANTS.QUESTION_INPUT_OPTION}) to create Questions & Answers: ");
+            $"Input ({CONSTANTS.PLAY_INPUT_OPTION}) to Play \nInput ({CONSTANTS.QUESTION_INPUT_OPTION}) to create Questions & Answers: ");
         char userSelection = Console.ReadKey().KeyChar;
         Console.Clear();
 
@@ -149,6 +149,11 @@ public class UIMethods
         Console.WriteLine("Invalid selection");
     }
 
+    /// <summary>
+    /// User input answer selection
+    /// </summary>
+    /// <param name="randomQAndA"></param>
+    /// <returns>Answer input</returns>
     public static int AnswerInput(QuestionsAndAnswers randomQAndA)
     {
         Console.WriteLine();
@@ -158,6 +163,13 @@ public class UIMethods
         return userAnswer;
     }
 
+    /// <summary>
+    /// Outcome from the answer is printed out along with Points total
+    /// </summary>
+    /// <param name="userAnswer"></param>
+    /// <param name="randomQAndA"></param>
+    /// <param name="points"></param>
+    /// <returns>Point addition</returns>
     public static int AnswerResult(int userAnswer, QuestionsAndAnswers randomQAndA, int points)
     {
         int indexReduction = 1;

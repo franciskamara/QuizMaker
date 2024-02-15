@@ -39,7 +39,7 @@ public class Program
         } //End: Question input option
 
 
-        if (userSelection == CONSTANTS.PLAY_OPTION_INPUT)
+        if (userSelection == CONSTANTS.PLAY_INPUT_OPTION)
         {
             List<QuestionsAndAnswers>
                 loadedQAndA = FileUtils.LoadData(); //Load Q&A from LoadData serialisation
@@ -81,7 +81,7 @@ public class Program
             }
         } //End: Play option
 
-        if (userSelection != CONSTANTS.QUESTION_INPUT_OPTION && userSelection != CONSTANTS.PLAY_OPTION_INPUT)
+        if (userSelection != CONSTANTS.QUESTION_INPUT_OPTION && userSelection != CONSTANTS.PLAY_INPUT_OPTION)
         {
             UIMethods.InvalidSelectionMessage();
             //You may need to handle this seperately!!

@@ -4,6 +4,10 @@ namespace QuizMaker;
 
 public class FileUtils
 {
+    /// <summary>
+    /// Serialiser Q&A to XML file
+    /// </summary>
+    /// <param name="listQuesAndAnswers"></param>
     public static void SaveData(List<QuestionsAndAnswers> listQuesAndAnswers)
     {
         XmlSerializer serializer = new XmlSerializer(typeof(List<QuestionsAndAnswers>)); // Serialize list data
@@ -17,7 +21,7 @@ public class FileUtils
     /// <summary>
     /// Return the data from the XML and structures with QuestionsAndAnswers class 
     /// </summary>
-    /// <returns>List of questions ans answers</returns>
+    /// <returns>List of Q&A</returns>
     public static List<QuestionsAndAnswers> LoadData()
     {
         List<QuestionsAndAnswers> returnValue;
