@@ -24,21 +24,21 @@ public class Program
             {
                 QuestionsAndAnswers questionsAndAnswersSet = new();
 
-                questionsAndAnswersSet.Question = UIMethods.InputQuestion(); //User input the question 
+                questionsAndAnswersSet.Question = UIMethods.InputQuestion(qInput); //User input the question 
 
                 questionsAndAnswersSet.Answers =
                     UIMethods.InputAnswers(numberOfAnswers); //User input the range of possible answers
 
-                questionsAndAnswersSet.correctAnswer =
+                questionsAndAnswersSet.correctAnswerIndex =
                     UIMethods.InputCorrectAnswerIndex(numberOfAnswers); //User inputs the index of correct answer
 
                 listQuesAndAnswers.Add(questionsAndAnswersSet); //Add questions and answer(s) to list
             }
 
             FileUtils.SaveData(listQuesAndAnswers); //Save the entire list
-        }//End: Question input option
+        } //End: Question input option
 
-        
+
         if (userSelection == CONSTANTS.PLAY_OPTION_INPUT)
         {
             List<QuestionsAndAnswers>
@@ -46,35 +46,40 @@ public class Program
 
             if (loadedQAndA != null && loadedQAndA.Count > 0)
             {
-                // Pull randomly selected question and answers 
-                QuestionsAndAnswers randomQAndA = LogicMethods.RandomQuestionGenerator(loadedQAndA);
-
-                if (randomQAndA != null)
+                int points = 0;
+                while (loadedQAndA.Count > 0)
                 {
-                    int points = 0;
-                    UIMethods.PrintQuestionAndAnswers(randomQAndA); //Print Random Q&A from the list
+                    // Pull randomly selected question and answers 
+                    QuestionsAndAnswers randomQAndA = LogicMethods.RandomQuestionGenerator(loadedQAndA);
 
-                    //loadedQAndA.Remove(randomQ); // Remove the selected question from the list
+                    if (randomQAndA != null)
+                    {
+                        UIMethods.PrintQuestionAndAnswers(randomQAndA); //Print Random Q&A from the list
 
-                    int userAnswer = UIMethods.UserAnswerInput(randomQAndA); //User makes an answer input
-                    
-                    UIMethods.UserAnswerResult(userAnswer, randomQAndA, points);//Outcome from user answer
+                        //loadedQAndA.Remove(randomQ); // Remove the selected question from the list
+
+                        int userAnswer = UIMethods.AnswerInput(randomQAndA); //User makes an answer input
+
+                        points = UIMethods.AnswerResult(userAnswer, randomQAndA, points); //Outcome from user answer
+
+                        LogicMethods.PrintPoints(points);
+                    }
+                    else
+                    {
+                        UIMethods.NoQuestionsAvailableMessage(); //Question unavailable for gameplay message
+                        //May need to add more or handle different 
+                    }
                 }
-                else
+                if (loadedQAndA.Count == 0)
                 {
                     UIMethods.NoQuestionsAvailableMessage(); //Question unavailable for gameplay message
+                    return;
                     //May need to add more or handle different 
+                    
                 }
+                
             }
-            else
-            {
-                UIMethods.NoQuestionsAvailableMessage(); //Question unavailable for gameplay message
-                return;
-                //May need to add more or handle different 
-            }
-
-
-        }//End: Play option
+        } //End: Play option
 
         if (userSelection != CONSTANTS.QUESTION_INPUT_OPTION && userSelection != CONSTANTS.PLAY_OPTION_INPUT)
         {

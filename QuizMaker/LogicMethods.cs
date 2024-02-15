@@ -23,4 +23,9 @@ public class LogicMethods
 
         return randomQAndA;
     }
+
+    public static void PrintPoints(int points)
+    {
+        Console.WriteLine($"Points: {points}");
+    }
 }

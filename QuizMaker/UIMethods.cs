@@ -57,10 +57,10 @@ public class UIMethods
     /// User question input
     /// </summary>
     /// <returns>User question input</returns>
-    public static string InputQuestion()
+    public static string InputQuestion(int qInput)
     {
         Console.Clear();
-        Console.Write("Input the question: ");
+        Console.Write($"Input question no.{qInput + 1}: ");
         string question = Console.ReadLine();
         Console.Clear();
 
@@ -149,22 +149,20 @@ public class UIMethods
         Console.WriteLine("Invalid selection");
     }
 
-    public static int UserAnswerInput(QuestionsAndAnswers randomQAndA)
+    public static int AnswerInput(QuestionsAndAnswers randomQAndA)
     {
-        
-
         Console.WriteLine();
         Console.Write("What is your answer no.: ");
-        int userAnswer = Console.ReadKey().KeyChar;
+        int userAnswer = Int32.Parse(Console.ReadLine());
 
         return userAnswer;
     }
 
-    public static void UserAnswerResult(int userAnswer, QuestionsAndAnswers randomQAndA, int points)
+    public static int AnswerResult(int userAnswer, QuestionsAndAnswers randomQAndA, int points)
     {
         int indexReduction = 1;
         
-        if (userAnswer - indexReduction == randomQAndA.correctAnswer)
+        if (userAnswer - indexReduction == randomQAndA.correctAnswerIndex)
         {
             Console.Clear();
             Console.WriteLine("Correct answer");
@@ -175,6 +173,7 @@ public class UIMethods
             Console.Clear();
             Console.WriteLine("Incorrect answer");
         }
-        
+
+        return points;
     }
 }
