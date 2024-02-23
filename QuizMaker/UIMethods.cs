@@ -18,14 +18,22 @@ public class UIMethods
     /// Question for user to Play or Input Questions/Answers
     /// </summary>
     /// <returns>User selection</returns>
-    public static char PlayOrQuestionSelect()
+    public static int PlayOrQuestionSelect()
     {
-        Console.Write(
-            $"Input ({CONSTANTS.PLAY_INPUT_OPTION}) to Play \nInput ({CONSTANTS.QUESTION_INPUT_OPTION}) to create Questions & Answers: ");
-        char userSelection = Console.ReadKey().KeyChar;
-        Console.Clear();
+        while (true)
+        {
+            Console.Write(
+                $"Input ({CONSTANTS.PLAY_INPUT_OPTION}) to Play \nInput ({CONSTANTS.QUESTION_INPUT_OPTION}) to create Questions & Answers: ");
 
-        return userSelection;
+            if (Int32.TryParse(Console.ReadLine(), out int userSelection))
+            {
+                Console.Clear();
+                return userSelection;
+            }
+
+            Console.Clear();
+            Console.WriteLine("Invalid input. Please try again.");
+        }
     }
 
     /// <summary>
@@ -103,11 +111,9 @@ public class UIMethods
                     Console.Clear();
                     break; //Exit the loop if the input is valid and less than numberOfAnswers
                 }
-                else
-                {
-                    Console.WriteLine(
-                        $"The correct answer index should be between 0 and less than {numberOfAnswers}.");
-                }
+
+                Console.WriteLine(
+                    $"The correct answer index should be between 0 and less than {numberOfAnswers}.");
             }
             else
             {
@@ -146,7 +152,7 @@ public class UIMethods
     /// </summary>
     public static void InvalidSelectionMessage()
     {
-        Console.WriteLine("Invalid selection");
+        Console.WriteLine("Invalid selection. Please try again.");
     }
 
     /// <summary>
@@ -156,11 +162,20 @@ public class UIMethods
     /// <returns>Answer input</returns>
     public static int AnswerInput(QuestionsAndAnswers randomQAndA)
     {
-        Console.WriteLine();
-        Console.Write("What is your answer no.: ");
-        int userAnswer = Int32.Parse(Console.ReadLine());
+        while (true)
+        {
+            Console.WriteLine();
+            Console.Write("What is your answer no.: ");
+            
+            if (Int32.TryParse(Console.ReadLine(), out int userAnswer))
+            {
+                return userAnswer;
+            }
+            
+            Console.WriteLine("Invalid input. Please try again.");
+        }
 
-        return userAnswer;
+        // return userAnswer;
     }
 
     /// <summary>
@@ -173,7 +188,6 @@ public class UIMethods
     public static int AnswerResult(int userAnswer, QuestionsAndAnswers randomQAndA, int points)
     {
         int indexReduction = 1;
-        
         if (userAnswer - indexReduction == randomQAndA.correctAnswerIndex)
         {
             Console.Clear();

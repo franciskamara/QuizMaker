@@ -9,8 +9,50 @@ public class Program
     {
         UIMethods.PrintWelcomeMessage();
 
-        char userSelection = UIMethods.PlayOrQuestionSelect();
+        int userSelection = UIMethods.PlayOrQuestionSelect();
 
+        if (userSelection == CONSTANTS.PLAY_INPUT_OPTION)
+        {
+            List<QuestionsAndAnswers>
+                loadedQAndA = FileUtils.LoadData(); //Load Q&A from LoadData serialisation
+
+            if (loadedQAndA != null && loadedQAndA.Count > 0)
+            {
+                int points = 0;
+                while (loadedQAndA.Count > 0)
+                {
+                    // Pull randomly selected question and answers 
+                    QuestionsAndAnswers randomQAndA = LogicMethods.RandomQuestionGenerator(loadedQAndA);
+
+                    if (randomQAndA != null)
+                    {
+                        UIMethods.PrintQuestionAndAnswers(randomQAndA); //Print Random Q&A from the list
+
+                        //loadedQAndA.Remove(randomQ); // Remove the selected question from the list
+
+                        int userAnswer = UIMethods.AnswerInput(randomQAndA); //User makes an answer input
+                        //if statement: answer is 0
+                        if (userAnswer == 0)
+                            return; //print goodbye message and exit
+                        points = UIMethods.AnswerResult(userAnswer, randomQAndA, points); //Outcome from user answer
+
+                        LogicMethods.PrintPoints(points);
+                    }
+                    else
+                    {
+                        UIMethods.NoQuestionsAvailableMessage(); //Question unavailable for gameplay message
+                        //May need to add more or handle different 
+                    }
+                }
+            }
+
+            if (loadedQAndA.Count == 0)
+            {
+                UIMethods.NoQuestionsAvailableMessage(); //Question unavailable for gameplay message
+                return;
+                //May need to add more or handle different 
+            }
+        } //End: Play option
 
         if (userSelection == CONSTANTS.QUESTION_INPUT_OPTION)
         {
@@ -36,56 +78,24 @@ public class Program
             }
 
             FileUtils.SaveData(listQuesAndAnswers); //Save the entire list
-        } //End: Question input option
-
-
-        if (userSelection == CONSTANTS.PLAY_INPUT_OPTION)
-        {
-            List<QuestionsAndAnswers>
-                loadedQAndA = FileUtils.LoadData(); //Load Q&A from LoadData serialisation
-
-            if (loadedQAndA != null && loadedQAndA.Count > 0)
-            {
-                int points = 0;
-                while (loadedQAndA.Count > 0)
-                {
-                    // Pull randomly selected question and answers 
-                    QuestionsAndAnswers randomQAndA = LogicMethods.RandomQuestionGenerator(loadedQAndA);
-
-                    if (randomQAndA != null)
-                    {
-                        UIMethods.PrintQuestionAndAnswers(randomQAndA); //Print Random Q&A from the list
-
-                        //loadedQAndA.Remove(randomQ); // Remove the selected question from the list
-
-                        int userAnswer = UIMethods.AnswerInput(randomQAndA); //User makes an answer input
-
-                        points = UIMethods.AnswerResult(userAnswer, randomQAndA, points); //Outcome from user answer
-
-                        LogicMethods.PrintPoints(points);
-                    }
-                    else
-                    {
-                        UIMethods.NoQuestionsAvailableMessage(); //Question unavailable for gameplay message
-                        //May need to add more or handle different 
-                    }
-                }
-                if (loadedQAndA.Count == 0)
-                {
-                    UIMethods.NoQuestionsAvailableMessage(); //Question unavailable for gameplay message
-                    return;
-                    //May need to add more or handle different 
-                    
-                }
-                
-            }
-        } //End: Play option
-
-        if (userSelection != CONSTANTS.QUESTION_INPUT_OPTION && userSelection != CONSTANTS.PLAY_INPUT_OPTION)
-        {
-            UIMethods.InvalidSelectionMessage();
-            //You may need to handle this seperately!!
-            return;
-        }
+        } //End: Q&A input option
+        // else
+        // {
+        //     UIMethods.InvalidSelectionMessage();
+        //     Console.Write("Please make another input: ");
+        //     while (true)
+        //     {
+        //         if (Int32.TryParse(Console.ReadLine(), out userSelection))
+        //         {
+        //             break;
+        //         }
+        //         else
+        //         {
+        //             UIMethods.InvalidSelectionMessage();
+        //             Console.Write("Please make another input: ");
+        //         }
+        //     }
+        //     //You may need to handle this seperately!!
+        // }
     }
 }
