@@ -32,20 +32,19 @@ public class Program
                         //loadedQAndA.Remove(randomQ); // Remove the selected question from the list
 
                         int userAnswer = UIMethods.AnswerInput(randomQAndA); //User makes an answer input
-                        
-                        if (userAnswer == 0)//if statement: answer is 0
+
+                        if (userAnswer == 0) //if statement: answer is 0
                             return; //print goodbye message and exit
-                        
+
                         points = UIMethods.AnswerResult(userAnswer, randomQAndA, points); //Outcome from user answer
 
                         LogicMethods.PrintPoints(points);
                         string continuePlaying = UIMethods.continuePlaying();
                         if (continuePlaying == CONSTANTS.OPTION_NO)
                         {
-                            UIMethods.ThanksForPlayingMessage();
+                            UIMethods.ThanksForPlayingMessage(points);
                             break;
                         }
-
                     }
                     else
                     {
@@ -89,6 +88,7 @@ public class Program
 
             FileUtils.SaveData(listQuesAndAnswers); //Save the entire list
         } //End: Q&A input option
+
         if (userSelection != CONSTANTS.PLAY_INPUT_OPTION && userSelection != CONSTANTS.QUESTION_INPUT_OPTION)
         {
             UIMethods.InvalidSelectionMessage();

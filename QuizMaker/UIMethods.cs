@@ -203,6 +203,10 @@ public class UIMethods
         return points;
     }
 
+    /// <summary>
+    /// Ask user if they wish to continue playing
+    /// </summary>
+    /// <returns>User's answer</returns>
     public static string continuePlaying()
     {
         while (true)
@@ -213,22 +217,28 @@ public class UIMethods
             {
                 return continuePlay;
             }
+
             if (continuePlay == CONSTANTS.OPTION_NO)
             {
                 return continuePlay;
             }
+
             Console.WriteLine("\nIncorrect option. Please try again. ");
-            
         }
     }
 
-    public static void ThanksForPlayingMessage()
+    /// <summary>
+    /// End game play message
+    /// </summary>
+    public static void ThanksForPlayingMessage(int points)
     {
         Console.Clear();
-        Console.WriteLine("Thanks for playing.");
+        Console.WriteLine($"Thanks for playing. Total points: {points}");
     }
 
-
+    /// <summary>
+    /// Request user make another input
+    /// </summary>
     public static void RequestAnotherInput()
     {
         Console.Write("Please make another input: ");
