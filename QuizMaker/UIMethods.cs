@@ -224,6 +224,7 @@ public class UIMethods
 
     public static void ThanksForPlayingMessage()
     {
+        Console.Clear();
         Console.WriteLine("Thanks for playing.");
     }
 
