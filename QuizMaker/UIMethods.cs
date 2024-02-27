@@ -165,13 +165,13 @@ public class UIMethods
         while (true)
         {
             Console.WriteLine();
-            Console.Write("What is your answer no.: ");
-            
+            Console.Write("What is your answer no.? ");
+
             if (Int32.TryParse(Console.ReadLine(), out int userAnswer))
             {
                 return userAnswer;
             }
-            
+
             Console.WriteLine("Invalid input. Please try again.");
         }
 
@@ -201,5 +201,35 @@ public class UIMethods
         }
 
         return points;
+    }
+
+    public static string continuePlaying()
+    {
+        while (true)
+        {
+            Console.Write("Do you wish to continue playing? y/n: ");
+            string continuePlay = Console.ReadLine().ToLower();
+            if (continuePlay == CONSTANTS.OPTION_YES)
+            {
+                return continuePlay;
+            }
+            if (continuePlay == CONSTANTS.OPTION_NO)
+            {
+                return continuePlay;
+            }
+            Console.WriteLine("\nIncorrect option. Please try again. ");
+            
+        }
+    }
+
+    public static void ThanksForPlayingMessage()
+    {
+        Console.WriteLine("Thanks for playing.");
+    }
+
+
+    public static void RequestAnotherInput()
+    {
+        Console.Write("Please make another input: ");
     }
 }

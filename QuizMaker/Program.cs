@@ -1,4 +1,5 @@
 ﻿using System.Net;
+using System.Threading.Channels;
 using System.Xml.Serialization;
 
 namespace QuizMaker;
@@ -31,16 +32,25 @@ public class Program
                         //loadedQAndA.Remove(randomQ); // Remove the selected question from the list
 
                         int userAnswer = UIMethods.AnswerInput(randomQAndA); //User makes an answer input
-                        //if statement: answer is 0
-                        if (userAnswer == 0)
+                        
+                        if (userAnswer == 0)//if statement: answer is 0
                             return; //print goodbye message and exit
+                        
                         points = UIMethods.AnswerResult(userAnswer, randomQAndA, points); //Outcome from user answer
 
                         LogicMethods.PrintPoints(points);
+                        string continuePlaying = UIMethods.continuePlaying();
+                        if (continuePlaying == CONSTANTS.OPTION_NO)
+                        {
+                            UIMethods.ThanksForPlayingMessage();
+                            break;
+                        }
+
                     }
                     else
                     {
                         UIMethods.NoQuestionsAvailableMessage(); //Question unavailable for gameplay message
+                        return;
                         //May need to add more or handle different 
                     }
                 }
@@ -79,23 +89,26 @@ public class Program
 
             FileUtils.SaveData(listQuesAndAnswers); //Save the entire list
         } //End: Q&A input option
-        // else
-        // {
-        //     UIMethods.InvalidSelectionMessage();
-        //     Console.Write("Please make another input: ");
-        //     while (true)
-        //     {
-        //         if (Int32.TryParse(Console.ReadLine(), out userSelection))
-        //         {
-        //             break;
-        //         }
-        //         else
-        //         {
-        //             UIMethods.InvalidSelectionMessage();
-        //             Console.Write("Please make another input: ");
-        //         }
-        //     }
-        //     //You may need to handle this seperately!!
-        // }
+        if (userSelection != CONSTANTS.PLAY_INPUT_OPTION && userSelection != CONSTANTS.QUESTION_INPUT_OPTION)
+        {
+            UIMethods.InvalidSelectionMessage();
+            UIMethods.RequestAnotherInput();
+            while (true)
+            {
+                if (Int32.TryParse(Console.ReadLine(), out userSelection))
+                {
+                    if (userSelection != CONSTANTS.PLAY_INPUT_OPTION ||
+                        userSelection != CONSTANTS.QUESTION_INPUT_OPTION)
+                    {
+                        break;
+                    }
+                }
+                else
+                {
+                    UIMethods.InvalidSelectionMessage();
+                }
+            }
+            //You may need to handle this seperately!!
+        }
     }
 }
