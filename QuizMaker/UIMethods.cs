@@ -237,7 +237,7 @@ public class UIMethods
     }
     
     /// <summary>
-    /// Print points total
+    /// Print points total to user
     /// </summary>
     /// <param name="points"></param>
     public static void PrintPoints(int points)
