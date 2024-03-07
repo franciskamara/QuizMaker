@@ -23,7 +23,7 @@ public class Program
                 while (loadedQAndA.Count > 0)
                 {
                     // Pull randomly selected question and answers 
-                    QuestionsAndAnswers randomQAndA = LogicMethods.RandomQuestionGenerator(loadedQAndA);
+                    QuestionsAndAnswers randomQAndA = LogicMethods.GenerateRandomQuestions(loadedQAndA);
 
                     if (randomQAndA != null)
                     {

@@ -7,7 +7,7 @@ public class LogicMethods
     /// </summary>
     /// <param name="loadedQAndA"></param>
     /// <returns>A random question, if questions are available</returns>
-    public static QuestionsAndAnswers RandomQuestionGenerator(List<QuestionsAndAnswers> loadedQAndA)
+    public static QuestionsAndAnswers GenerateRandomQuestions(List<QuestionsAndAnswers> loadedQAndA)
     {
         QuestionsAndAnswers randomQAndA = null;
 
