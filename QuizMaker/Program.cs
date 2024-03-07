@@ -91,23 +91,10 @@ public class Program
 
         if (userSelection != CONSTANTS.PLAY_INPUT_OPTION && userSelection != CONSTANTS.QUESTION_INPUT_OPTION)
         {
-            UIMethods.InvalidSelectionMessage();
-            UIMethods.RequestAnotherInput();
-            while (true)
-            {
-                if (Int32.TryParse(Console.ReadLine(), out userSelection))
-                {
-                    if (userSelection != CONSTANTS.PLAY_INPUT_OPTION ||
-                        userSelection != CONSTANTS.QUESTION_INPUT_OPTION)
-                    {
-                        break;
-                    }
-                }
-                else
-                {
-                    UIMethods.InvalidSelectionMessage();
-                }
-            }
+
+            userSelection = UIMethods.InvalidOptionNewSelection();
+           
+            
         }
     }
 }

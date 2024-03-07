@@ -252,4 +252,31 @@ public class UIMethods
     {
         Console.Write("Please make another input: ");
     }
+    
+    /// <summary>
+    /// User makes an invalid input, request a valid input 
+    /// </summary>
+    /// <returns>The user's selection</returns>
+    public static int InvalidOptionNewSelection()
+    {
+        int userSelection;
+        UIMethods.InvalidSelectionMessage();
+        UIMethods.RequestAnotherInput();
+        while (true)
+        {
+            if (Int32.TryParse(Console.ReadLine(), out userSelection))
+            {
+                if (userSelection != CONSTANTS.PLAY_INPUT_OPTION ||
+                    userSelection != CONSTANTS.QUESTION_INPUT_OPTION)
+                {
+                    break;
+                }
+            }
+            else
+            {
+                UIMethods.InvalidSelectionMessage();
+            }
+        }
+        return userSelection;
+    }
 }
