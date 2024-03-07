@@ -235,6 +235,15 @@ public class UIMethods
         Console.Clear();
         Console.WriteLine($"Thanks for playing. Total points: {points}");
     }
+    
+    /// <summary>
+    /// Print points total
+    /// </summary>
+    /// <param name="points"></param>
+    public static void PrintPoints(int points)
+    {
+        Console.WriteLine($"Points: {points}");
+    }
 
     /// <summary>
     /// Request user make another input

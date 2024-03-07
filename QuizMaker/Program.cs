@@ -38,7 +38,7 @@ public class Program
 
                         points = UIMethods.AnswerResult(userAnswer, randomQAndA, points); //Outcome from user answer
 
-                        LogicMethods.PrintPoints(points);
+                        UIMethods.PrintPoints(points);
                         string continuePlaying = UIMethods.continuePlaying();
                         if (continuePlaying == CONSTANTS.OPTION_NO)
                         {
@@ -108,7 +108,6 @@ public class Program
                     UIMethods.InvalidSelectionMessage();
                 }
             }
-            //You may need to handle this seperately!!
         }
     }
 }

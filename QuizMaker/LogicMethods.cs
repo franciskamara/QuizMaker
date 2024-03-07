@@ -23,13 +23,4 @@ public class LogicMethods
 
         return randomQAndA;
     }
-
-    /// <summary>
-    /// Print point total
-    /// </summary>
-    /// <param name="points"></param>
-    public static void PrintPoints(int points)
-    {
-        Console.WriteLine($"Points: {points}");
-    }
 }
