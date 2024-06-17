@@ -9,7 +9,7 @@ public class UIMethods
     /// </summary>
     public static void PrintWelcomeMessage()
     {
-        Console.WriteLine(" Welcome to the Quiz Maker");
+        Console.WriteLine(" Welcome to the Quiz Maker ");
         Console.WriteLine("****************************");
         Console.WriteLine();
     }
@@ -99,8 +99,7 @@ public class UIMethods
     /// <returns>Correct answer index</returns>
     public static int InputCorrectAnswerIndex(int numberOfAnswers)
     {
-        int correctAnswerIndex = 0;
-
+        int correctAnswerIndex;
         while (true) //While loop: infinite until correct input is made
         {
             Console.Write("Please enter the correct answer index: ");

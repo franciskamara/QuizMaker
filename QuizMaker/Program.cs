@@ -91,10 +91,7 @@ public class Program
 
         if (userSelection != CONSTANTS.PLAY_INPUT_OPTION && userSelection != CONSTANTS.QUESTION_INPUT_OPTION)
         {
-
-            userSelection = UIMethods.InvalidOptionNewSelection();
-           
-            
+            UIMethods.InvalidOptionNewSelection();
         }
     }
 }
